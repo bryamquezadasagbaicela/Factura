@@ -20,7 +20,10 @@ public class ControladorCliente {
     
     public ControladorCliente(){
         lista = new HashSet<>();
-        int codigo = 0;
+        codigo = 1;
+    }
+    public int getCodigo(){
+        return codigo;
     }
     public void create(Cliente objeto) {
         codigo++;
@@ -61,9 +64,7 @@ public class ControladorCliente {
         }
     }
     
-    public int getCodigo(){
-        return codigo;
-    }
+
 
     public Object getCont() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -72,4 +73,6 @@ public class ControladorCliente {
     public void guardar(Cliente cliente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
 }

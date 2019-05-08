@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 public class Cliente {
 
-    private int codigo;
+    private int codigo ;
     private String cedula;
     private String nombre;
     private String direccion;
@@ -32,7 +32,7 @@ public class Cliente {
     }
 
     public int getCodigo() {
-        return ++codigo;
+        return codigo;
     }
 
     public void setCodigo(int codigo) {
