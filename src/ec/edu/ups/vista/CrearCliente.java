@@ -22,7 +22,7 @@ public class CrearCliente extends javax.swing.JInternalFrame {
     public CrearCliente(ControladorCliente controladorCliente) {
         initComponents();
         this.controladorCliente=controladorCliente;
-        jLabelCodigo.setText(String.valueOf(this.controladorCliente.getCodigo()));
+        jLabel6.setText(String.valueOf(this.controladorCliente.getCodigo()));
     }
 
     /**
@@ -45,7 +45,8 @@ public class CrearCliente extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabelCodigo = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -76,7 +77,9 @@ public class CrearCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabelCodigo.setText("Codigo");
+        txtCodigo.setEditable(false);
+
+        jLabel6.setText("Codigo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,9 +106,12 @@ public class CrearCliente extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelCodigo)
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(44, 44, 44)
+                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(76, 76, 76)
@@ -120,8 +126,10 @@ public class CrearCliente extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCodigo)
-                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -141,7 +149,7 @@ public class CrearCliente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(0, 79, Short.MAX_VALUE))
+                .addGap(0, 84, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,16 +158,18 @@ public class CrearCliente extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         Cliente cliente = new Cliente();
+        
         cliente.setCedula(txtCedula.getText());
         cliente.setNombre(txtNombre.getText());
-        cliente.setTelefono(txtTelefono.getText());
         cliente.setDireccion(txtDireccion.getText());
-        controladorCliente.create(cliente);
-        JOptionPane.showMessageDialog(this, "cliente creado con exito:","crear cliente",JOptionPane.OK_OPTION);
-       
-        //jlabelCodigo.setText(String.valueOf(this.jLabelCodigo));
-        txtNombre.setText("");
+        cliente.setTelefono(txtTelefono.getText());
+        controladorCliente.crear(cliente);
+        JOptionPane.showMessageDialog(this, "Cliente Creado exitosamente","Crear Cliente",JOptionPane.OK_OPTION);
+        //Setear codigo
+        //vaciar Txts
+        txtCodigo.setText(String.valueOf(this.controladorCliente.getCodigo()));
         txtCedula.setText("");
+        txtNombre.setText("");
         txtDireccion.setText("");
         txtTelefono.setText("");
         
@@ -178,8 +188,9 @@ public class CrearCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabelCodigo;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;

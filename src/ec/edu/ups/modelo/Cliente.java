@@ -60,7 +60,8 @@ public class Cliente {
     }
 
     public void setDireccion(String direccion) {
-        this.direccion = direccion;
+       this.direccion = direccion;
+
     }
 
     public String getTelefono() {
@@ -72,10 +73,15 @@ public class Cliente {
     }
 
     @Override
+    public String toString() {
+        return "Cliente{" + "codigo=" + codigo + ", cedula=" + cedula + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + '}';
+    }
+
+    @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 47 * hash + this.codigo;
-        hash = 47 * hash + Objects.hashCode(this.cedula);
+        int hash = 7;
+        hash = 89 * hash + this.codigo;
+        hash = 89 * hash + Objects.hashCode(this.cedula);
         return hash;
     }
 
@@ -98,11 +104,6 @@ public class Cliente {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "codigo=" + codigo + ", cedula=" + cedula + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + '}';
-    }
-
+    }        
+    
 }

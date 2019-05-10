@@ -13,15 +13,16 @@ import ec.edu.ups.modelo.Cliente;
  * @author 59398
  */
 public class LeerCliente extends javax.swing.JInternalFrame {
+
     private ControladorCliente controladorCliente;
-    
+
     /**
      * Creates new form LeerCliente
      */
     public LeerCliente(ControladorCliente controladorCliente) {
         initComponents();
         this.controladorCliente = controladorCliente;
-        
+
     }
 
     /**
@@ -36,7 +37,7 @@ public class LeerCliente extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonBuscar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -51,28 +52,20 @@ public class LeerCliente extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Codigo");
 
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonBuscarActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Nombre");
 
-        txtNombre.setEditable(false);
-
         jLabel4.setText("Cedula");
-
-        txtCedula.setEditable(false);
 
         jLabel5.setText("Direccion");
 
-        txtDireccion.setEditable(false);
-
         jLabel6.setText("Telefono");
-
-        txtTelefono.setEditable(false);
 
         salir.setText("SALIR");
         salir.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +90,7 @@ public class LeerCliente extends javax.swing.JInternalFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jButton1)))
+                                    .addComponent(jButtonBuscar)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
@@ -124,7 +117,7 @@ public class LeerCliente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButtonBuscar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -149,26 +142,24 @@ public class LeerCliente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         int codigo = Integer.parseInt(txtCodigo.getText());
-        Cliente clientebuscado = controladorCliente.read(codigo);
-        System.out.println(clientebuscado);
-        txtNombre.setText(clientebuscado.getNombre());
-        txtCedula.setText(clientebuscado.getCedula());
-        txtDireccion.setText(clientebuscado.getDireccion());
-        txtTelefono.setText(clientebuscado.getTelefono());
-        controladorCliente.read(codigo);
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        Cliente clienteBuscado = controladorCliente.read(codigo);
+        txtNombre.setText(clienteBuscado.getNombre());
+        txtCedula.setText(clienteBuscado.getCedula());
+        txtDireccion.setText(clienteBuscado.getDireccion());
+        txtTelefono.setText(clienteBuscado.getTelefono());
+
+
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        
+        this.dispose();
     }//GEN-LAST:event_salirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

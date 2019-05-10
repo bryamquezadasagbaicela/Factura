@@ -155,41 +155,35 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cliente cliente = new Cliente();
-        cliente = controladorCliente.read(Integer.parseInt(txtCodigo.getText()));
-        if (cliente == null) {
-            JOptionPane.showMessageDialog(null, "No existe el Cliente con el codigo: " + txtCodigo.getText());
-        } else {
-            txtNombre.setText(cliente.getNombre());
-            txtCedula.setText(cliente.getCedula());
-            txtDireccion.setText(cliente.getDireccion());
-            txtTelefono.setText(cliente.getTelefono());
-        }
+         int codigo=Integer.parseInt(txtCodigo.getText());
+        Cliente clienteBuscado=controladorCliente.read(codigo);
+        txtNombre.setText(clienteBuscado.getNombre());
+        txtCedula.setText(clienteBuscado.getCedula());
+        txtDireccion.setText(clienteBuscado.getDireccion());
+        txtTelefono.setText(clienteBuscado.getTelefono());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Cliente cliente = new Cliente();
+       Cliente cliente=new Cliente();
+        cliente.setCodigo(Integer.parseInt(txtCodigo.getText()));
         cliente.setCedula(txtCedula.getText());
         cliente.setNombre(txtNombre.getText());
         cliente.setDireccion(txtDireccion.getText());
         cliente.setTelefono(txtTelefono.getText());
-        cliente.setCodigo(Integer.parseInt(txtCodigo.getText()));
         controladorCliente.update(cliente);
-        JOptionPane.showMessageDialog(null, "Cliente Actualizado");
-        this.setVisible(false);
-        resetear();
+        JOptionPane.showMessageDialog(this, "Cliente se ha Modificado","Actualizar Cliente",JOptionPane.OK_OPTION);
+        //vaciar Txts
+        txtCodigo.setText("");
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        this.setVisible(false);
-        resetear();
+        
     }//GEN-LAST:event_jButton3ActionPerformed
-    public void resetear() {
-        txtNombre.setText("");
-        txtCedula.setText("");
-        txtDireccion.setText("");
-        txtTelefono.setText("");
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -12,7 +12,7 @@ import ec.edu.ups.controladores.ControladorCliente;
  * @author 59398
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-   
+   private CrearCliente crearCliente;
     private ControladorCliente controladorCliente;
         
     
@@ -77,6 +77,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         saveAsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Update");
+        saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveAsMenuItem);
 
         exitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
@@ -112,21 +117,31 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
+       EliminarCliente eliminarCliente = new EliminarCliente(controladorCliente);
+        eliminarCliente.setVisible(true);
+        desktopPane.add(eliminarCliente);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-        CrearCliente crearClientes = new CrearCliente(controladorCliente);
-        crearClientes.setVisible(true);
-        desktopPane.add(crearClientes);
+        if(crearCliente == null || !crearCliente.isVisible()){
+            crearCliente = new CrearCliente(controladorCliente);
+            crearCliente.setVisible(true);
+            desktopPane.add(crearCliente);
+        }
         
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-       LeerCliente leerCliente = new LeerCliente(controladorCliente);
-       leerCliente.setVisible(true);
-       desktopPane.add(leerCliente);
+        LeerCliente buscarCliente = new LeerCliente(controladorCliente);
+        buscarCliente.setVisible(true);
+        desktopPane.add(buscarCliente);
     }//GEN-LAST:event_saveMenuItemActionPerformed
+
+    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
+        ActualizarCliente actualizarCliente = new ActualizarCliente(controladorCliente);
+        actualizarCliente.setVisible(true);
+        desktopPane.add(actualizarCliente);
+    }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
