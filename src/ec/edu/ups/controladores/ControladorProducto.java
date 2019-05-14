@@ -6,7 +6,7 @@
 package ec.edu.ups.controladores;
 
 import ec.edu.ups.modelo.Cliente;
-import java.util.ArrayList;
+import ec.edu.ups.modelo.Producto;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,11 +14,11 @@ import java.util.Set;
  *
  * @author 59398
  */
-public class ControladorCliente {
-    private Set<Cliente> lista;
+public class ControladorProducto {
+     private Set<Producto> lista;
     private int codigo;
 
-    public ControladorCliente() {
+    public ControladorProducto() {
         lista = new HashSet<>();
         codigo = 1;
     }    
@@ -27,23 +27,23 @@ public class ControladorCliente {
         return codigo;
     }
         
-    public void crear(Cliente objeto){
+    public void crear(Producto objeto){
         objeto.setCodigo(codigo);
         lista.add(objeto);    
         codigo++;
     }
    
     
-    public Cliente read(int codigo){
-        for (Cliente cliente : lista) {
-            if(cliente.getCodigo() == codigo){
-                return cliente;
+    public Producto read(int codigo){
+        for (Producto producto : lista) {
+            if(producto.getCodigo() == codigo){
+                return producto;
             }
         }        
         return null;
     }
     
-    public void update(Cliente objeto){
+    public void update(Producto objeto){
         if(lista.contains(objeto)){
             lista.remove(objeto);
             lista.add(objeto);
@@ -51,17 +51,17 @@ public class ControladorCliente {
     }
     
     public void delete(int codigo){
-        for (Cliente cliente : lista) {
-            if(cliente.getCodigo() == codigo){
-                lista.remove(cliente);
+        for (Producto producto : lista) {
+            if(producto.getCodigo() == codigo){
+                lista.remove(producto);
                 break;
             }
         }  
     } 
 
-    public Set<Cliente> getLista() {
+    public Set<Producto> getLista() {
+       
         return lista;
-    }
     
-    
+  }
 }

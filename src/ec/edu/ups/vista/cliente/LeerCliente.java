@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.ups.vista;
+package ec.edu.ups.vista.cliente;
 
 import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.modelo.Cliente;
@@ -14,7 +14,7 @@ import ec.edu.ups.modelo.Cliente;
  */
 public class LeerCliente extends javax.swing.JInternalFrame {
 
-    private ControladorCliente controladorCliente;
+       private ControladorCliente controladorCliente;
 
     /**
      * Creates new form LeerCliente
