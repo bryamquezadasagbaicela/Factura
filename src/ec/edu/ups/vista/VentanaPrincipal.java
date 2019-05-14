@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
  * @author QuezadaBryam
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+    //atributos
     private CrearCliente crearCliente;
     private CrearProducto crearProducto;
     private ControladorCliente controladorCliente;
@@ -48,6 +48,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
         cambiarIdioma();
     }
+    
     public void cambiarIdioma(){
         mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
         clienteMenu.setText(mensajes.getString("menu.cliente"));
@@ -489,14 +490,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itmReadListFacturaActionPerformed
 
     private void itmReadIdiomasEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadIdiomasEspañolActionPerformed
-        // TODO add your handling code here:
+        // cambiar idioma español Ecuador
         localizacion = new Locale ("es", "EC");
         Locale.setDefault(localizacion);
         cambiarIdioma();
     }//GEN-LAST:event_itmReadIdiomasEspañolActionPerformed
 
     private void itmReadIdiomasInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadIdiomasInglesActionPerformed
-        // TODO add your handling code here:
+        // cambiar idioma Ingles Estados Unidos
         localizacion = new Locale ("en", "US");
         Locale.setDefault(localizacion);
         cambiarIdioma();
