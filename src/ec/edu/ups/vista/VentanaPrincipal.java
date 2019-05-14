@@ -490,7 +490,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itmReadListFacturaActionPerformed
 
     private void itmReadIdiomasEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadIdiomasEspañolActionPerformed
-        // cambiar idioma español Ecuador
+        // cambiar idioma Español Ecuador
         localizacion = new Locale ("es", "EC");
         Locale.setDefault(localizacion);
         cambiarIdioma();
