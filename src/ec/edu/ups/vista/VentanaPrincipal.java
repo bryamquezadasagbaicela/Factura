@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 
 /**
  *
- * @author 59398
+ * @author QuezadaBryam
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
