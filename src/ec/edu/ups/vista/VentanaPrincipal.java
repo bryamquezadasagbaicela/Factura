@@ -376,7 +376,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itmReadDeleteProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadDeleteProductoActionPerformed
-
+        //eliminar producto
         EliminarProducto eliminarProducto = new EliminarProducto(controladorProducto);
         eliminarProducto.setVisible(true);
         desktopPane.add(eliminarProducto);
@@ -384,7 +384,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itmReadDeleteProductoActionPerformed
 
     private void itmReadCreateProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadCreateProductoActionPerformed
-
+        //crear producto
         if (crearProducto == null || !crearProducto.isVisible()) {
             crearProducto = new CrearProducto(controladorProducto);
             crearProducto.setVisible(true);
@@ -394,7 +394,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itmReadCreateProductoActionPerformed
 
     private void itmReadReadProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadReadProductoActionPerformed
-
+        //leer producto
         LeerProducto buscarProducto = new LeerProducto(controladorProducto);
         buscarProducto.setVisible(true);
         desktopPane.add(buscarProducto);
@@ -424,6 +424,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItem1ActionPerformed
 
     private void itmReadCreateClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadCreateClienteActionPerformed
+        //crear cliente
         if (crearCliente == null || !crearCliente.isVisible()) {
             crearCliente = new CrearCliente(controladorCliente);
             crearCliente.setVisible(true);
@@ -432,6 +433,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itmReadCreateClienteActionPerformed
 
     private void itmReadReadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadReadClienteActionPerformed
+        //leer cliente
         LeerCliente buscarCliente = new LeerCliente(controladorCliente);
         buscarCliente.setVisible(true);
         desktopPane.add(buscarCliente);
@@ -439,25 +441,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itmReadReadClienteActionPerformed
 
     private void imtReadUpdateClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imtReadUpdateClienteActionPerformed
+        //actualizar cliente
         ActualizarCliente actualizarCliente = new ActualizarCliente(controladorCliente);
         actualizarCliente.setVisible(true);
         desktopPane.add(actualizarCliente);
     }//GEN-LAST:event_imtReadUpdateClienteActionPerformed
 
     private void itmReadDeleteClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadDeleteClienteActionPerformed
+        //eliminar cliente
         EliminarCliente eliminarCliente = new EliminarCliente(controladorCliente);
         eliminarCliente.setVisible(true);
         desktopPane.add(eliminarCliente);
     }//GEN-LAST:event_itmReadDeleteClienteActionPerformed
 
     private void itmReadListClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadListClienteActionPerformed
+        //listar cliente
         ListarCliente listarCliente = new ListarCliente(controladorCliente);
         listarCliente.setVisible(true);
         desktopPane.add(listarCliente);
     }//GEN-LAST:event_itmReadListClienteActionPerformed
 
     private void itmReadListProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadListProductoActionPerformed
-       ListarProducto listarProducto = new ListarProducto(controladorProducto);
+       //listar producto
+        ListarProducto listarProducto = new ListarProducto(controladorProducto);
        listarProducto.setVisible(true);
        desktopPane.add(listarProducto);
     }//GEN-LAST:event_itmReadListProductoActionPerformed
