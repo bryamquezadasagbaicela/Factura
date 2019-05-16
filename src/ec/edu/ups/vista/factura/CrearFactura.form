@@ -150,7 +150,7 @@
                   <Component id="labelFec" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtFecha" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAgregarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnEliminarProducto" alignment="3" min="-2" max="-2" attributes="0"/>

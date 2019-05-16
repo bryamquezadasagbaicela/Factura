@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  *
- * @author 59398
+ * @author QuezadaBryam
  */
 public class Cliente {
 
