@@ -6,6 +6,8 @@
 package ec.edu.ups.vista.cliente;
 
 import ec.edu.ups.controladores.ControladorCliente;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +16,8 @@ import javax.swing.JOptionPane;
  */
 public class EliminarCliente extends javax.swing.JInternalFrame {
      private ControladorCliente controladorCliente;
+     private Locale localizacion;
+    private static ResourceBundle mensajes;
     /**
      * Creates new form EliminarCliente
      */
@@ -21,6 +25,13 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
         initComponents();
         this.controladorCliente = controladorCliente;
     }
+    public static void cambiarIdioma(Locale localizacion){
+        mensajes=ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
+        jlCodigo.setText(mensajes.getString("cliente.codigo"));
+        btnEliminar.setText(mensajes.getString("boton.eliminar"));
+        btnCancelar.setText(mensajes.getString("boton.cancelar"));
+    }
+           
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,31 +42,29 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jlCodigo = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("ELIMINAR CLIENTE");
 
-        jLabel1.setText("ELIMINAR CLIENTE");
+        jlCodigo.setText("Codigo");
 
-        jLabel2.setText("Codigo");
-
-        jButton2.setText("ELIMINAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("CANCELAR");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setText("CANCELAR");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
@@ -67,55 +76,50 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(jButton2)
+                        .addComponent(btnEliminar)
                         .addGap(31, 31, 31)
-                        .addComponent(jButton3))
+                        .addComponent(btnCancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(76, 76, 76)
-                        .addComponent(jLabel2)
+                        .addComponent(jlCodigo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCodigo)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txtCodigo)))
                 .addContainerGap(124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
+                .addGap(102, 102, 102)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jlCodigo)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(89, Short.MAX_VALUE))
+                    .addComponent(btnEliminar)
+                    .addComponent(btnCancelar))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
        int codigo=Integer.parseInt(txtCodigo.getText());
         controladorCliente.delete(codigo);
-        JOptionPane.showMessageDialog(this, "Cliente se ha eliminado exitosamente","Cliente Eliminado",JOptionPane.OK_OPTION);
+        JOptionPane.showMessageDialog(this, "Cliente se ha eliminado ","Cliente Eliminado",JOptionPane.OK_OPTION);
        //vaciar txt
         txtCodigo.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    public static javax.swing.JButton btnCancelar;
+    public static javax.swing.JButton btnEliminar;
+    public static javax.swing.JLabel jlCodigo;
     private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
 }

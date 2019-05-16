@@ -10,28 +10,40 @@ import ec.edu.ups.controladores.ControladorFactura;
 import ec.edu.ups.controladores.ControladorFacturaDetalle;
 import ec.edu.ups.controladores.ControladorProducto;
 import ec.edu.ups.vista.VentanaPrincipal;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
  * @author 59398
  */
 public class LeerFactura extends javax.swing.JInternalFrame {
- private ControladorFactura controladorFactura;
+
+    private ControladorFactura controladorFactura;
     private ControladorCliente controladorCliente;
     private ControladorFacturaDetalle controladorFacturaDetalle;
     private ControladorProducto controladorProducto;
     public static int codigoFactura;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
+
     /**
      * Creates new form LeerFactura
      */
-    public LeerFactura(ControladorFactura controladorFactura,ControladorCliente controladorCliente,ControladorFacturaDetalle controladorFacturaDetalle,ControladorProducto controladorProducto) {
+    public LeerFactura(ControladorFactura controladorFactura, ControladorCliente controladorCliente, ControladorFacturaDetalle controladorFacturaDetalle, ControladorProducto controladorProducto) {
         initComponents();
-        this.controladorFactura=controladorFactura;
-        this.controladorCliente=controladorCliente;
-        this.controladorFacturaDetalle=controladorFacturaDetalle;
-        this.controladorProducto=controladorProducto;
+        this.controladorFactura = controladorFactura;
+        this.controladorCliente = controladorCliente;
+        this.controladorFacturaDetalle = controladorFacturaDetalle;
+        this.controladorProducto = controladorProducto;
     }
 
+    public static void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        labelCod.setText(mensajes.getString("factura.codigo"));
+        btnBuscar.setText(mensajes.getString("boton.buscar"));
+        btnSalir.setText(mensajes.getString("boton.cancelar"));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,20 +54,17 @@ public class LeerFactura extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        labelCod = new javax.swing.JLabel();
         txtCodigoFactura = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("LEER FACTURA");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("FACTURA");
-
-        jLabel3.setText("Codigo Factura");
+        labelCod.setText("Codigo Factura");
 
         btnBuscar.setText("BUSCAR");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -64,10 +73,10 @@ public class LeerFactura extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setText("SALIR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setText("SALIR");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
@@ -76,19 +85,15 @@ public class LeerFactura extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 156, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(69, 69, 69)
-                .addComponent(jLabel3)
+                .addComponent(labelCod)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCodigoFactura)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 10, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
@@ -96,16 +101,14 @@ public class LeerFactura extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addGap(98, 98, 98)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(labelCod)
                     .addComponent(txtCodigoFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addGap(30, 30, 30)
-                .addComponent(jButton2)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addComponent(btnSalir)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
@@ -113,22 +116,21 @@ public class LeerFactura extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         codigoFactura = Integer.parseInt(txtCodigoFactura.getText());
-                EncontrarFactura encontrarFactura = new EncontrarFactura(controladorFactura,controladorCliente,controladorFacturaDetalle,controladorProducto);
-                
-                setVisible(false);
-                encontrarFactura.setVisible(true);
+        EncontrarFactura encontrarFactura = new EncontrarFactura(controladorFactura, controladorCliente, controladorFacturaDetalle, controladorProducto);
+
+        setVisible(false);
+        encontrarFactura.setVisible(true);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    public static javax.swing.JButton btnBuscar;
+    public static javax.swing.JButton btnSalir;
+    public static javax.swing.JLabel labelCod;
     private javax.swing.JTextField txtCodigoFactura;
     // End of variables declaration//GEN-END:variables
 }

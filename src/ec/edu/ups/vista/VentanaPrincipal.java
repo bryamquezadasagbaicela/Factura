@@ -32,10 +32,21 @@ import java.util.ResourceBundle;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
-    //atributos
+    //variables
 
     private CrearCliente crearCliente;
+    private ActualizarCliente actualizarCliente;
+    private EliminarCliente eliminarCliente;
+    private LeerCliente leerCliente;
+    private CrearFactura crearFactura;
+    private ActualizarProducto actualizarProducto;
     private CrearProducto crearProducto;
+    private LeerProducto leerProducto;
+    private EliminarProducto eliminarProducto;
+    private EliminarFactura eliminarFactura;
+    private ListarCliente listarCliente;
+    private ListarProducto listarProducto;
+    private LeerFactura leerFactura;
     private ControladorCliente controladorCliente;
     private ControladorProducto controladorProducto;
     private ControladorFactura controladorFactura;
@@ -60,7 +71,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
         cambiarIdioma();
     }
-
+    //metodo para cambiar el idioma
     public void cambiarIdioma() {
         mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
         //cambiar menus
@@ -239,6 +250,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         productoMenu.setMnemonic('f');
         productoMenu.setText("Producto");
 
+        itmReadCreateProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         itmReadCreateProducto.setMnemonic('o');
         itmReadCreateProducto.setText("Create");
         itmReadCreateProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -248,6 +260,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         productoMenu.add(itmReadCreateProducto);
 
+        itmReadReadProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
         itmReadReadProducto.setMnemonic('s');
         itmReadReadProducto.setText("Read");
         itmReadReadProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -257,6 +270,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         productoMenu.add(itmReadReadProducto);
 
+        imtReadUpdateProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
         imtReadUpdateProducto.setMnemonic('a');
         imtReadUpdateProducto.setText("Update");
         imtReadUpdateProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -266,6 +280,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         productoMenu.add(imtReadUpdateProducto);
 
+        itmReadDeleteProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
         itmReadDeleteProducto.setMnemonic('x');
         itmReadDeleteProducto.setText("Delete");
         itmReadDeleteProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -275,6 +290,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         productoMenu.add(itmReadDeleteProducto);
 
+        itmReadListProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
         itmReadListProducto.setText("List");
         itmReadListProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -288,6 +304,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         facturaMenu.setMnemonic('f');
         facturaMenu.setText("Factura");
 
+        itmReadCreateFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         itmReadCreateFactura.setMnemonic('o');
         itmReadCreateFactura.setText("Create");
         itmReadCreateFactura.addActionListener(new java.awt.event.ActionListener() {
@@ -297,6 +314,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         facturaMenu.add(itmReadCreateFactura);
 
+        itmReadReadFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
         itmReadReadFactura.setMnemonic('s');
         itmReadReadFactura.setText("Read");
         itmReadReadFactura.addActionListener(new java.awt.event.ActionListener() {
@@ -306,6 +324,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         facturaMenu.add(itmReadReadFactura);
 
+        itmReadDeleteFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
         itmReadDeleteFactura.setMnemonic('x');
         itmReadDeleteFactura.setText("Delete");
         itmReadDeleteFactura.addActionListener(new java.awt.event.ActionListener() {
@@ -360,9 +379,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void itmReadDeleteProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadDeleteProductoActionPerformed
         //eliminar producto
-        EliminarProducto eliminarProducto = new EliminarProducto(controladorProducto);
+        if(eliminarProducto == null || !eliminarProducto.isVisible()){
+        eliminarProducto = new EliminarProducto(controladorProducto);
         eliminarProducto.setVisible(true);
         desktopPane.add(eliminarProducto);
+        EliminarProducto.cambiarIdioma(localizacion);
+        }
 
     }//GEN-LAST:event_itmReadDeleteProductoActionPerformed
 
@@ -372,22 +394,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             crearProducto = new CrearProducto(controladorProducto);
             crearProducto.setVisible(true);
             desktopPane.add(crearProducto);
+            CrearProducto.cambiarIdioma(localizacion);
         }
-
+        
     }//GEN-LAST:event_itmReadCreateProductoActionPerformed
 
     private void itmReadReadProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadReadProductoActionPerformed
         //leer producto
-        LeerProducto buscarProducto = new LeerProducto(controladorProducto);
-        buscarProducto.setVisible(true);
-        desktopPane.add(buscarProducto);
+        if(leerProducto == null || !leerProducto.isVisible()){
+        leerProducto = new LeerProducto(controladorProducto);
+        leerProducto.setVisible(true);
+        desktopPane.add(leerProducto);
+        LeerProducto.cambiarIdioma(localizacion);
+        }
     }//GEN-LAST:event_itmReadReadProductoActionPerformed
 
     private void imtReadUpdateProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imtReadUpdateProductoActionPerformed
 
-        ActualizarProducto actualizarProducto = new ActualizarProducto(controladorProducto);
+        if(actualizarProducto == null || !actualizarProducto.isVisible()){
+        actualizarProducto = new ActualizarProducto(controladorProducto);
         actualizarProducto.setVisible(true);
         desktopPane.add(actualizarProducto);
+        ActualizarProducto.cambiarIdioma(localizacion);
+        }
     }//GEN-LAST:event_imtReadUpdateProductoActionPerformed
 
     private void openMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItem1ActionPerformed
@@ -408,61 +437,85 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void itmReadCreateClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadCreateClienteActionPerformed
         //crear cliente
-        if (crearCliente == null || !crearCliente.isVisible()) {
+        if(crearCliente == null || !crearCliente.isVisible()){
             crearCliente = new CrearCliente(controladorCliente);
             crearCliente.setVisible(true);
             desktopPane.add(crearCliente);
+            CrearCliente.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_itmReadCreateClienteActionPerformed
 
     private void itmReadReadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadReadClienteActionPerformed
         //leer cliente
-        LeerCliente buscarCliente = new LeerCliente(controladorCliente);
-        buscarCliente.setVisible(true);
-        desktopPane.add(buscarCliente);
+        if(leerCliente == null || !leerCliente.isVisible()){
+        leerCliente = new LeerCliente(controladorCliente);
+        leerCliente.setVisible(true);
+        desktopPane.add(leerCliente);
+        LeerCliente.cambiarIdioma(localizacion);
+        }
 
     }//GEN-LAST:event_itmReadReadClienteActionPerformed
 
     private void imtReadUpdateClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imtReadUpdateClienteActionPerformed
         //actualizar cliente
-        ActualizarCliente actualizarCliente = new ActualizarCliente(controladorCliente);
+         if(actualizarCliente == null || !actualizarCliente.isVisible()){
+        actualizarCliente = new ActualizarCliente(controladorCliente);
         actualizarCliente.setVisible(true);
         desktopPane.add(actualizarCliente);
+        ActualizarCliente.cambiarIdioma(localizacion);
+        }
     }//GEN-LAST:event_imtReadUpdateClienteActionPerformed
 
     private void itmReadDeleteClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadDeleteClienteActionPerformed
         //eliminar cliente
-        EliminarCliente eliminarCliente = new EliminarCliente(controladorCliente);
+        if(eliminarCliente == null || !eliminarCliente.isVisible()){
+        eliminarCliente = new EliminarCliente(controladorCliente);
         eliminarCliente.setVisible(true);
         desktopPane.add(eliminarCliente);
+        EliminarCliente.cambiarIdioma(localizacion);
+           
+        }
+       
     }//GEN-LAST:event_itmReadDeleteClienteActionPerformed
 
     private void itmReadListClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadListClienteActionPerformed
         //listar cliente
+        if(listarCliente == null || !listarCliente.isVisible()){
         ListarCliente listarCliente = new ListarCliente(controladorCliente);
         listarCliente.setVisible(true);
         desktopPane.add(listarCliente);
+        ListarCliente.cambiarIdioma(localizacion);
+        }
     }//GEN-LAST:event_itmReadListClienteActionPerformed
 
     private void itmReadListProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadListProductoActionPerformed
         //listar producto
-        ListarProducto listarProducto = new ListarProducto(controladorProducto);
+        if(listarProducto == null || !listarProducto.isVisible()){
+        listarProducto = new ListarProducto(controladorProducto);
         listarProducto.setVisible(true);
         desktopPane.add(listarProducto);
+        ListarProducto.cambiarIdioma(localizacion);
+        }
     }//GEN-LAST:event_itmReadListProductoActionPerformed
 
     private void itmReadReadFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadReadFacturaActionPerformed
         //leer factura
-        LeerFactura leerFactura = new LeerFactura(controladorFactura, controladorCliente, controladorFacturaDetalle, controladorProducto);
+        if(leerFactura == null || !leerFactura.isVisible()){
+        leerFactura=new LeerFactura(controladorFactura,controladorCliente,controladorFacturaDetalle,controladorProducto);
         leerFactura.setVisible(true);
         desktopPane.add(leerFactura);
+        LeerFactura.cambiarIdioma(localizacion);
+        }
     }//GEN-LAST:event_itmReadReadFacturaActionPerformed
 
     private void itmReadDeleteFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadDeleteFacturaActionPerformed
         // eliminar factura
-        EliminarFactura eliminarFactura = new EliminarFactura(controladorFactura);
+        if(eliminarFactura == null || !eliminarFactura.isVisible()){
+        eliminarFactura=new EliminarFactura(controladorFactura);
         eliminarFactura.setVisible(true);
         desktopPane.add(eliminarFactura);
+        EliminarFactura.cambiarIdioma(localizacion);
+        }
     }//GEN-LAST:event_itmReadDeleteFacturaActionPerformed
 
     private void itmReadIdiomasEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadIdiomasEspañolActionPerformed
@@ -481,9 +534,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void itmReadCreateFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadCreateFacturaActionPerformed
         //crear factura
-       CrearFactura crearFactura=new CrearFactura(controladorFactura,controladorCliente,controladorProducto,controladorFacturaDetalle);
+        if(crearFactura == null || !crearFactura.isVisible()){
+        crearFactura=new CrearFactura(controladorFactura,controladorCliente,controladorProducto,controladorFacturaDetalle);
         crearFactura.setVisible(true);
         desktopPane.add(crearFactura);
+        CrearFactura.cambiarIdioma(localizacion);
+        }
 
     }//GEN-LAST:event_itmReadCreateFacturaActionPerformed
 

@@ -7,6 +7,8 @@ package ec.edu.ups.vista.producto;
 
 import ec.edu.ups.controladores.ControladorProducto;
 import ec.edu.ups.modelo.Producto;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,12 +18,21 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ListarProducto extends javax.swing.JInternalFrame {
     private ControladorProducto controladorProducto;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
+    public static DefaultTableModel modelo; 
     /**
      * Creates new form ListarProducto
      */
     public ListarProducto(ControladorProducto controladorProducto) {
         initComponents();
         this.controladorProducto = controladorProducto;
+         modelo = new DefaultTableModel();
+        //Da los nombres de las columnas de la tabla
+        Object[] columnas = {"Codigo","Nombre","Precio"};
+        modelo.setColumnIdentifiers(columnas);
+        tblProducto.setModel(modelo);
+        
         llenarDatos();
     }
 
@@ -34,6 +45,12 @@ public class ListarProducto extends javax.swing.JInternalFrame {
                 producto.getPrecio()};
             modelo1.addRow(datos);
         }
+    }
+    public static void cambiarIdioma(Locale localizacion){
+        mensajes=ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
+        Object[] columnas = {mensajes.getString("cliente.codigo"),mensajes.getString("cliente.nombre"), mensajes.getString("producto.precio")};
+        modelo.setColumnIdentifiers(columnas);
+       
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,6 +67,7 @@ public class ListarProducto extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("LISTAR PRODUCTO");
 
         tblProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

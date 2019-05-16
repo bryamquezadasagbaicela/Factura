@@ -8,13 +8,18 @@ package ec.edu.ups.vista.producto;
 import ec.edu.ups.controladores.ControladorCliente;
 import ec.edu.ups.controladores.ControladorProducto;
 import ec.edu.ups.modelo.Producto;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
- * @author 59398
+ * @author QuezadaBryam
+ * 
  */
 public class LeerProducto extends javax.swing.JInternalFrame {
        private ControladorProducto controladorProducto;
+        private Locale localizacion;
+    private static ResourceBundle mensajes;
 
     /**
      * Creates new form LeerProducto
@@ -24,7 +29,14 @@ public class LeerProducto extends javax.swing.JInternalFrame {
         this.controladorProducto = controladorProducto;
 
     }
-
+public static void cambiarIdioma(Locale localizacion){
+         mensajes=ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
+        labelCod.setText(mensajes.getString("cliente.codigo"));
+        labelNom.setText(mensajes.getString("cliente.nombre"));
+        labelPre.setText(mensajes.getString("producto.precio"));
+        btnSalir.setText(mensajes.getString("boton.cancelar"));
+        btnBuscar.setText(mensajes.getString("boton.buscar"));
+    }
 
   
 
@@ -37,28 +49,26 @@ public class LeerProducto extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        salir = new javax.swing.JButton();
+        labelCod = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
         txtCodigo = new javax.swing.JTextField();
-        jButtonBuscar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
+        labelNom = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        labelPre = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("LEER PRODUCTO");
 
-        jLabel1.setText("LEER PRODUCTO");
+        labelCod.setText("Codigo");
 
-        jLabel2.setText("Codigo");
-
-        salir.setText("SALIR");
-        salir.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setText("SALIR");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
@@ -68,14 +78,14 @@ public class LeerProducto extends javax.swing.JInternalFrame {
             }
         });
 
-        jButtonBuscar.setText("Buscar");
-        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Nombre");
+        labelNom.setText("Nombre");
 
         txtNombre.setEditable(false);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +94,7 @@ public class LeerProducto extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setText("Precio");
+        labelPre.setText("Precio");
 
         txtPrecio.setEditable(false);
         txtPrecio.addActionListener(new java.awt.event.ActionListener() {
@@ -103,15 +113,15 @@ public class LeerProducto extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(labelCod)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButtonBuscar))
+                                .addComponent(btnBuscar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5))
+                                    .addComponent(labelNom)
+                                    .addComponent(labelPre))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(57, 57, 57)
@@ -122,50 +132,44 @@ public class LeerProducto extends javax.swing.JInternalFrame {
                                         .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(167, 167, 167)
-                        .addComponent(salir)))
+                        .addComponent(btnSalir)))
                 .addContainerGap(11, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(labelCod)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBuscar))
+                    .addComponent(btnBuscar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(labelNom)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(labelPre)
                     .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
-                .addComponent(salir)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addComponent(btnSalir)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
-    }//GEN-LAST:event_salirActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
           int codigo=Integer.parseInt(txtCodigo.getText());
         Producto productoBuscado=controladorProducto.read(codigo);
         txtNombre.setText(productoBuscado.getNombre());
         txtPrecio.setText(String.valueOf(productoBuscado.getPrecio()));
 
-    }//GEN-LAST:event_jButtonBuscarActionPerformed
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
@@ -181,12 +185,11 @@ public class LeerProducto extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBuscar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JButton salir;
+    public static javax.swing.JButton btnBuscar;
+    public static javax.swing.JButton btnSalir;
+    public static javax.swing.JLabel labelCod;
+    public static javax.swing.JLabel labelNom;
+    public static javax.swing.JLabel labelPre;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;

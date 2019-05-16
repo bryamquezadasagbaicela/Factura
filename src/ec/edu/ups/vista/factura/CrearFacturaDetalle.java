@@ -11,6 +11,8 @@ import ec.edu.ups.controladores.ControladorFacturaDetalle;
 import ec.edu.ups.controladores.ControladorProducto;
 import ec.edu.ups.modelo.FacturaDetalle;
 import ec.edu.ups.modelo.Producto;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Set;
 import javax.swing.JOptionPane;
 
@@ -25,6 +27,8 @@ public class CrearFacturaDetalle extends javax.swing.JInternalFrame {
     private ControladorProducto controladorProducto;
     private Set<Producto> listaProductos;
     double SubTotal;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
 
     /**
      * Creates new form CrearFacturaDetalle
@@ -40,6 +44,15 @@ public class CrearFacturaDetalle extends javax.swing.JInternalFrame {
         }
         productoEncontrado();
     }
+     public static void cambiarIdioma(Locale localizacion){
+         mensajes=ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
+         labelCod.setText(mensajes.getString("cliente.codigo"));
+         labelPro.setText(mensajes.getString("producto.nombre"));
+         labelUni.setText(mensajes.getString("producto.precioUnitario"));
+         labelCant.setText(mensajes.getString("detalle.cantidad"));
+         btnCalcular.setText(mensajes.getString("boton.CalSub"));
+         AnadirLista.setText(mensajes.getString("boton.añaPro"));
+   }
 
     public void productoEncontrado() {
         Producto producto = buscarProducto();
@@ -65,31 +78,29 @@ public class CrearFacturaDetalle extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelCod = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        labelPro = new javax.swing.JLabel();
+        labelUni = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
         cbxanadirProducto = new javax.swing.JComboBox();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        labelCant = new javax.swing.JLabel();
+        labelSub = new javax.swing.JLabel();
         txtPrecioUnitario = new javax.swing.JTextField();
         txtSubTotal = new javax.swing.JTextField();
         AnadirLista = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCalcular = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("AÑADIR PRODUCTO");
 
-        jLabel1.setText("Codigo");
+        labelCod.setText("Codigo");
 
-        jLabel2.setText("FACTURA DETALLE");
+        labelPro.setText("Producto");
 
-        jLabel3.setText("Producto");
-
-        jLabel4.setText("P.Unitario");
+        labelUni.setText("P.Unitario");
 
         cbxanadirProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,9 +108,9 @@ public class CrearFacturaDetalle extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setText("Cantidad");
+        labelCant.setText("Cantidad");
 
-        jLabel6.setText("Sub Total");
+        labelSub.setText("Sub Total");
 
         txtPrecioUnitario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,10 +125,10 @@ public class CrearFacturaDetalle extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setText("Calcular");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnCalcular.setText("Calcular");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCalcularActionPerformed(evt);
             }
         });
 
@@ -126,17 +137,13 @@ public class CrearFacturaDetalle extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(jLabel2)
-                .addContainerGap(167, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6))
+                            .addComponent(labelCant)
+                            .addComponent(labelUni)
+                            .addComponent(labelSub))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtPrecioUnitario)
@@ -144,8 +151,8 @@ public class CrearFacturaDetalle extends javax.swing.JInternalFrame {
                             .addComponent(txtSubTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
+                            .addComponent(labelPro)
+                            .addComponent(labelCod))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,37 +160,35 @@ public class CrearFacturaDetalle extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AnadirLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelCod, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(labelPro)
                     .addComponent(cbxanadirProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AnadirLista))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(labelCant))
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(labelUni)
                     .addComponent(txtPrecioUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(labelSub)
                     .addComponent(txtSubTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addContainerGap(61, Short.MAX_VALUE))
+                    .addComponent(btnCalcular))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
@@ -209,7 +214,7 @@ public class CrearFacturaDetalle extends javax.swing.JInternalFrame {
         AnadirLista.setEnabled(false);
     }//GEN-LAST:event_AnadirListaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         if (txtPrecioUnitario.getText().isEmpty()) {
         } else if (txtCantidad.getText().isEmpty()) {
         } else {
@@ -217,7 +222,7 @@ public class CrearFacturaDetalle extends javax.swing.JInternalFrame {
             txtSubTotal.setText(String.valueOf(SubTotal));
             AnadirLista.setEnabled(true);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void txtPrecioUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioUnitarioActionPerformed
         // TODO add your handling code here:
@@ -229,15 +234,14 @@ public class CrearFacturaDetalle extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AnadirLista;
+    public static javax.swing.JButton AnadirLista;
+    public static javax.swing.JButton btnCalcular;
     private javax.swing.JComboBox cbxanadirProducto;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    public static javax.swing.JLabel labelCant;
+    public static javax.swing.JLabel labelCod;
+    public static javax.swing.JLabel labelPro;
+    public static javax.swing.JLabel labelSub;
+    public static javax.swing.JLabel labelUni;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtPrecioUnitario;
