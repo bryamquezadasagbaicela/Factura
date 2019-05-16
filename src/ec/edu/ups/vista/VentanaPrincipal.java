@@ -16,7 +16,13 @@ import ec.edu.ups.vista.cliente.EliminarCliente;
 import ec.edu.ups.vista.cliente.CrearCliente;
 import ec.edu.ups.vista.cliente.ActualizarCliente;
 import ec.edu.ups.controladores.ControladorCliente;
+import ec.edu.ups.controladores.ControladorFactura;
+import ec.edu.ups.controladores.ControladorFacturaDetalle;
 import ec.edu.ups.controladores.ControladorProducto;
+import ec.edu.ups.vista.factura.CrearFactura;
+import ec.edu.ups.vista.factura.CrearFacturaDetalle;
+import ec.edu.ups.vista.factura.EliminarFactura;
+import ec.edu.ups.vista.factura.LeerFactura;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -25,11 +31,15 @@ import java.util.ResourceBundle;
  * @author QuezadaBryam
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
+
     //atributos
+
     private CrearCliente crearCliente;
     private CrearProducto crearProducto;
     private ControladorCliente controladorCliente;
     private ControladorProducto controladorProducto;
+    private ControladorFactura controladorFactura;
+    private ControladorFacturaDetalle controladorFacturaDetalle;
     private Locale localizacion;
     private ResourceBundle mensajes;
 
@@ -39,43 +49,44 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         controladorCliente = new ControladorCliente();
         controladorProducto = new ControladorProducto();
+        controladorFactura = new ControladorFactura();
+        controladorFacturaDetalle = new ControladorFacturaDetalle();
         initComponents();
         this.setSize(500, 500);//tama;o 
-        //System.out.println("localizacion por defecto: "+ Locale.getDefault().getLanguage());
-        localizacion = new Locale("es","EC");
+        System.out.println("localizacion por defecto: " + Locale.getDefault().getLanguage());
+        localizacion = new Locale("es", "EC");
         Locale.setDefault(localizacion);
-        //System.out.println("localizacion forzada: "+ Locale.getDefault().getLanguage());
+        System.out.println("localizacion forzada: " + Locale.getDefault().getLanguage());
         
         cambiarIdioma();
     }
-    
-    public void cambiarIdioma(){
-        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
+
+    public void cambiarIdioma() {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        //cambiar menus
         clienteMenu.setText(mensajes.getString("menu.cliente"));
         productoMenu.setText(mensajes.getString("menu.producto"));
         facturaMenu.setText(mensajes.getString("menu.factura"));
         idiomasMenu.setText(mensajes.getString("menu.idiomas"));
-        
+        //cambiar los crear
         itmReadCreateCliente.setText(mensajes.getString("menu.item.create"));
         itmReadCreateProducto.setText(mensajes.getString("menu.item.create"));
         itmReadCreateFactura.setText(mensajes.getString("menu.item.create"));
-        
+        //cambiar los leer
         itmReadReadCliente.setText(mensajes.getString("menu.item.read"));
         itmReadReadProducto.setText(mensajes.getString("menu.item.read"));
         itmReadReadFactura.setText(mensajes.getString("menu.item.read"));
-        
+        //cambiar los actualizar
         imtReadUpdateCliente.setText(mensajes.getString("menu.item.update"));
         imtReadUpdateProducto.setText(mensajes.getString("menu.item.update"));
-        imtReadUpdateFactura.setText(mensajes.getString("menu.item.update"));
-        
+        //cambiar los eleminar
         itmReadDeleteCliente.setText(mensajes.getString("menu.item.delete"));
         itmReadDeleteProducto.setText(mensajes.getString("menu.item.delete"));
         itmReadDeleteFactura.setText(mensajes.getString("menu.item.delete"));
-        
+        //cambiar los listar
         itmReadListCliente.setText(mensajes.getString("menu.item.list"));
         itmReadListProducto.setText(mensajes.getString("menu.item.list"));
-        itmReadListFactura.setText(mensajes.getString("menu.item.list"));
-        
+        //cambiar los idiomas
         itmReadIdiomasEspañol.setText(mensajes.getString("menu.item.español"));
         itmReadIdiomasIngles.setText(mensajes.getString("menu.item.ingles"));
     }
@@ -113,9 +124,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         facturaMenu = new javax.swing.JMenu();
         itmReadCreateFactura = new javax.swing.JMenuItem();
         itmReadReadFactura = new javax.swing.JMenuItem();
-        imtReadUpdateFactura = new javax.swing.JMenuItem();
         itmReadDeleteFactura = new javax.swing.JMenuItem();
-        itmReadListFactura = new javax.swing.JMenuItem();
         idiomasMenu = new javax.swing.JMenu();
         itmReadIdiomasEspañol = new javax.swing.JMenuItem();
         itmReadIdiomasIngles = new javax.swing.JMenuItem();
@@ -230,7 +239,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         productoMenu.setMnemonic('f');
         productoMenu.setText("Producto");
 
-        itmReadCreateProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         itmReadCreateProducto.setMnemonic('o');
         itmReadCreateProducto.setText("Create");
         itmReadCreateProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -240,7 +248,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         productoMenu.add(itmReadCreateProducto);
 
-        itmReadReadProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         itmReadReadProducto.setMnemonic('s');
         itmReadReadProducto.setText("Read");
         itmReadReadProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -250,7 +257,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         productoMenu.add(itmReadReadProducto);
 
-        imtReadUpdateProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         imtReadUpdateProducto.setMnemonic('a');
         imtReadUpdateProducto.setText("Update");
         imtReadUpdateProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -260,7 +266,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         productoMenu.add(imtReadUpdateProducto);
 
-        itmReadDeleteProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_MASK));
         itmReadDeleteProducto.setMnemonic('x');
         itmReadDeleteProducto.setText("Delete");
         itmReadDeleteProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -270,7 +275,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         productoMenu.add(itmReadDeleteProducto);
 
-        itmReadListProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
         itmReadListProducto.setText("List");
         itmReadListProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,7 +288,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         facturaMenu.setMnemonic('f');
         facturaMenu.setText("Factura");
 
-        itmReadCreateFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         itmReadCreateFactura.setMnemonic('o');
         itmReadCreateFactura.setText("Create");
         itmReadCreateFactura.addActionListener(new java.awt.event.ActionListener() {
@@ -294,7 +297,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         facturaMenu.add(itmReadCreateFactura);
 
-        itmReadReadFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         itmReadReadFactura.setMnemonic('s');
         itmReadReadFactura.setText("Read");
         itmReadReadFactura.addActionListener(new java.awt.event.ActionListener() {
@@ -304,17 +306,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         facturaMenu.add(itmReadReadFactura);
 
-        imtReadUpdateFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        imtReadUpdateFactura.setMnemonic('a');
-        imtReadUpdateFactura.setText("Update");
-        imtReadUpdateFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imtReadUpdateFacturaActionPerformed(evt);
-            }
-        });
-        facturaMenu.add(imtReadUpdateFactura);
-
-        itmReadDeleteFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_MASK));
         itmReadDeleteFactura.setMnemonic('x');
         itmReadDeleteFactura.setText("Delete");
         itmReadDeleteFactura.addActionListener(new java.awt.event.ActionListener() {
@@ -324,21 +315,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         facturaMenu.add(itmReadDeleteFactura);
 
-        itmReadListFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
-        itmReadListFactura.setText("List");
-        itmReadListFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmReadListFacturaActionPerformed(evt);
-            }
-        });
-        facturaMenu.add(itmReadListFactura);
-
         menuBar.add(facturaMenu);
 
         idiomasMenu.setMnemonic('f');
         idiomasMenu.setText("Idiomas");
 
-        itmReadIdiomasEspañol.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadIdiomasEspañol.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         itmReadIdiomasEspañol.setMnemonic('o');
         itmReadIdiomasEspañol.setText("Español");
         itmReadIdiomasEspañol.addActionListener(new java.awt.event.ActionListener() {
@@ -348,7 +330,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         idiomasMenu.add(itmReadIdiomasEspañol);
 
-        itmReadIdiomasIngles.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadIdiomasIngles.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
         itmReadIdiomasIngles.setMnemonic('x');
         itmReadIdiomasIngles.setText("Ingles");
         itmReadIdiomasIngles.addActionListener(new java.awt.event.ActionListener() {
@@ -463,45 +445,47 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itmReadListClienteActionPerformed
 
     private void itmReadListProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadListProductoActionPerformed
-       //listar producto
+        //listar producto
         ListarProducto listarProducto = new ListarProducto(controladorProducto);
-       listarProducto.setVisible(true);
-       desktopPane.add(listarProducto);
+        listarProducto.setVisible(true);
+        desktopPane.add(listarProducto);
     }//GEN-LAST:event_itmReadListProductoActionPerformed
 
-    private void itmReadCreateFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadCreateFacturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itmReadCreateFacturaActionPerformed
-
     private void itmReadReadFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadReadFacturaActionPerformed
-        // TODO add your handling code here:
+        //leer factura
+        LeerFactura leerFactura = new LeerFactura(controladorFactura, controladorCliente, controladorFacturaDetalle, controladorProducto);
+        leerFactura.setVisible(true);
+        desktopPane.add(leerFactura);
     }//GEN-LAST:event_itmReadReadFacturaActionPerformed
 
-    private void imtReadUpdateFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imtReadUpdateFacturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_imtReadUpdateFacturaActionPerformed
-
     private void itmReadDeleteFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadDeleteFacturaActionPerformed
-        // TODO add your handling code here:
+        // eliminar factura
+        EliminarFactura eliminarFactura = new EliminarFactura(controladorFactura);
+        eliminarFactura.setVisible(true);
+        desktopPane.add(eliminarFactura);
     }//GEN-LAST:event_itmReadDeleteFacturaActionPerformed
-
-    private void itmReadListFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadListFacturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itmReadListFacturaActionPerformed
 
     private void itmReadIdiomasEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadIdiomasEspañolActionPerformed
         // cambiar idioma Español Ecuador
-        localizacion = new Locale ("es", "EC");
+        localizacion = new Locale("es", "EC");
         Locale.setDefault(localizacion);
         cambiarIdioma();
     }//GEN-LAST:event_itmReadIdiomasEspañolActionPerformed
 
     private void itmReadIdiomasInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadIdiomasInglesActionPerformed
         // cambiar idioma Ingles Estados Unidos
-        localizacion = new Locale ("en", "US");
+        localizacion = new Locale("en", "US");
         Locale.setDefault(localizacion);
         cambiarIdioma();
     }//GEN-LAST:event_itmReadIdiomasInglesActionPerformed
+
+    private void itmReadCreateFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadCreateFacturaActionPerformed
+        //crear factura
+       CrearFactura crearFactura=new CrearFactura(controladorFactura,controladorCliente,controladorProducto,controladorFacturaDetalle);
+        crearFactura.setVisible(true);
+        desktopPane.add(crearFactura);
+
+    }//GEN-LAST:event_itmReadCreateFacturaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -540,13 +524,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu clienteMenu;
-    private javax.swing.JDesktopPane desktopPane;
+    public static javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem exitMenuItem1;
     private javax.swing.JMenu facturaMenu;
     private javax.swing.JMenu fileMenu1;
     private javax.swing.JMenu idiomasMenu;
     private javax.swing.JMenuItem imtReadUpdateCliente;
-    private javax.swing.JMenuItem imtReadUpdateFactura;
     private javax.swing.JMenuItem imtReadUpdateProducto;
     private javax.swing.JMenuItem itmReadCreateCliente;
     private javax.swing.JMenuItem itmReadCreateFactura;
@@ -557,7 +540,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itmReadIdiomasEspañol;
     private javax.swing.JMenuItem itmReadIdiomasIngles;
     private javax.swing.JMenuItem itmReadListCliente;
-    private javax.swing.JMenuItem itmReadListFactura;
     private javax.swing.JMenuItem itmReadListProducto;
     private javax.swing.JMenuItem itmReadReadCliente;
     private javax.swing.JMenuItem itmReadReadFactura;

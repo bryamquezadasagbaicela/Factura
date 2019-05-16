@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 59398
+ * @author QuezadaBryam
  */
 public class CrearCliente extends javax.swing.JInternalFrame {
      private ControladorCliente controladorCliente;
@@ -22,7 +22,7 @@ public class CrearCliente extends javax.swing.JInternalFrame {
     public CrearCliente(ControladorCliente controladorCliente) {
         initComponents();
         this.controladorCliente=controladorCliente;
-        jLabel6.setText(String.valueOf(this.controladorCliente.getCodigo()));
+        txtCodigo.setText(String.valueOf(this.controladorCliente.getCodigo()));
     }
 
     /**
@@ -185,7 +185,7 @@ public class CrearCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtCodigoActionPerformed
 
 

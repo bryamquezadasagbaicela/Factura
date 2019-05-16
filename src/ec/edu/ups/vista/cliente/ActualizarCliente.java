@@ -49,6 +49,10 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jLabel1.setText("ACTUALIZAR CLIENTE");
 
         jLabel2.setText("Codigo");

@@ -14,18 +14,29 @@ import java.util.Objects;
 public class Producto {
     private int codigo;
     private String nombre;
+    private String descripcion;
     private Double precio;
     
     public Producto(){
         
     }
 
-    public Producto(int codigo, String nombre, Double precio) {
+    public Producto(int codigo, String nombre, String descripcion, Double precio) {
         this.codigo = codigo;
         this.nombre = nombre;
-
+        this.descripcion = descripcion;
         this.precio = precio;
     }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+   
 
     public int getCodigo() {
         return codigo;

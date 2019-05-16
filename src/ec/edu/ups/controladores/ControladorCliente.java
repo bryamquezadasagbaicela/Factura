@@ -12,7 +12,7 @@ import java.util.Set;
 
 /**
  *
- * @author 59398
+ * @author QuezadaBryam
  */
 public class ControladorCliente {
     private Set<Cliente> lista;
@@ -42,6 +42,15 @@ public class ControladorCliente {
         }        
         return null;
     }
+    public Cliente readCedula(String cedula){
+        for (Cliente cliente : lista) {
+            if(cliente.getCedula().equals(cedula)){
+                return cliente;
+                
+            }
+        }   
+        return null;
+    }
     
     public void update(Cliente objeto){
         if(lista.contains(objeto)){
@@ -62,6 +71,10 @@ public class ControladorCliente {
     public Set<Cliente> getLista() {
         return lista;
     }
+
+   
+
+  
     
     
 }

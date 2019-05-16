@@ -48,6 +48,10 @@ public class LeerCliente extends javax.swing.JInternalFrame {
         txtTelefono = new javax.swing.JTextField();
         salir = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jLabel1.setText("LEER CLIENTE");
 
         jLabel2.setText("Codigo");
@@ -61,11 +65,19 @@ public class LeerCliente extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Nombre");
 
+        txtNombre.setEditable(false);
+
         jLabel4.setText("Cedula");
+
+        txtCedula.setEditable(false);
 
         jLabel5.setText("Direccion");
 
+        txtDireccion.setEditable(false);
+
         jLabel6.setText("Telefono");
+
+        txtTelefono.setEditable(false);
 
         salir.setText("SALIR");
         salir.addActionListener(new java.awt.event.ActionListener() {
