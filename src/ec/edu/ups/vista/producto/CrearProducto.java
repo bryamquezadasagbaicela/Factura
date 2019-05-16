@@ -154,7 +154,7 @@ public class CrearProducto extends javax.swing.JInternalFrame {
         producto.setNombre(txtNombre.getText());
         producto.setPrecio(Double.parseDouble(txtPrecio.getText()));
         controladorProducto.crear(producto);
-        JOptionPane.showMessageDialog(this, "Cliente Creado exitosamente", "Crear Cliente", JOptionPane.OK_OPTION);
+        JOptionPane.showMessageDialog(this, " Producto Creado", "Crear Producto", JOptionPane.OK_OPTION);
         //Setear codigo
         //vaciar Txts
         txtCodigo.setText(String.valueOf(this.controladorProducto.getCodigo()));
