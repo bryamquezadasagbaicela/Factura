@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 59398
+ * @author QuezadaBryam
  */
 public class CrearFacturaDetalle extends javax.swing.JInternalFrame {
 

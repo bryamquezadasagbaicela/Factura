@@ -408,9 +408,10 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
-       CrearFacturaDetalle crearFacturaDetalle=new CrearFacturaDetalle(controladorFacturaDetalle,controladorProducto);       
+       
+        CrearFacturaDetalle crearFacturaDetalle=new CrearFacturaDetalle(controladorFacturaDetalle,controladorProducto);       
        VentanaPrincipal.desktopPane.add(crearFacturaDetalle); 
-        crearFacturaDetalle.setVisible(true);
+       crearFacturaDetalle.setVisible(true);
        
     }//GEN-LAST:event_btnAgregarProductoActionPerformed
 

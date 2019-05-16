@@ -197,6 +197,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         clienteMenu.setText("Cliente");
 
         itmReadCreateCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadCreateCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/13732f.png"))); // NOI18N
         itmReadCreateCliente.setMnemonic('o');
         itmReadCreateCliente.setText("Create");
         itmReadCreateCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -207,6 +208,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         clienteMenu.add(itmReadCreateCliente);
 
         itmReadReadCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadReadCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/descarga1.png"))); // NOI18N
         itmReadReadCliente.setMnemonic('s');
         itmReadReadCliente.setText("Read");
         itmReadReadCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -217,6 +219,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         clienteMenu.add(itmReadReadCliente);
 
         imtReadUpdateCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        imtReadUpdateCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/create-new1.png"))); // NOI18N
         imtReadUpdateCliente.setMnemonic('a');
         imtReadUpdateCliente.setText("Update");
         imtReadUpdateCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -227,6 +230,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         clienteMenu.add(imtReadUpdateCliente);
 
         itmReadDeleteCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadDeleteCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/delete1.png"))); // NOI18N
         itmReadDeleteCliente.setMnemonic('x');
         itmReadDeleteCliente.setText("Delete");
         itmReadDeleteCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -237,6 +241,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         clienteMenu.add(itmReadDeleteCliente);
 
         itmReadListCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadListCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/add-rule1.png"))); // NOI18N
         itmReadListCliente.setText("List");
         itmReadListCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,6 +256,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         productoMenu.setText("Producto");
 
         itmReadCreateProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadCreateProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/607451.png"))); // NOI18N
         itmReadCreateProducto.setMnemonic('o');
         itmReadCreateProducto.setText("Create");
         itmReadCreateProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -261,6 +267,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         productoMenu.add(itmReadCreateProducto);
 
         itmReadReadProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadReadProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/descarga1.png"))); // NOI18N
         itmReadReadProducto.setMnemonic('s');
         itmReadReadProducto.setText("Read");
         itmReadReadProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -271,6 +278,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         productoMenu.add(itmReadReadProducto);
 
         imtReadUpdateProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
+        imtReadUpdateProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/create-new1.png"))); // NOI18N
         imtReadUpdateProducto.setMnemonic('a');
         imtReadUpdateProducto.setText("Update");
         imtReadUpdateProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -281,6 +289,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         productoMenu.add(imtReadUpdateProducto);
 
         itmReadDeleteProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadDeleteProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/delete1.png"))); // NOI18N
         itmReadDeleteProducto.setMnemonic('x');
         itmReadDeleteProducto.setText("Delete");
         itmReadDeleteProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -291,6 +300,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         productoMenu.add(itmReadDeleteProducto);
 
         itmReadListProducto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadListProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/add-rule1.png"))); // NOI18N
         itmReadListProducto.setText("List");
         itmReadListProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,6 +315,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         facturaMenu.setText("Factura");
 
         itmReadCreateFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadCreateFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/descarga (1)1.png"))); // NOI18N
         itmReadCreateFactura.setMnemonic('o');
         itmReadCreateFactura.setText("Create");
         itmReadCreateFactura.addActionListener(new java.awt.event.ActionListener() {
@@ -315,6 +326,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         facturaMenu.add(itmReadCreateFactura);
 
         itmReadReadFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadReadFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/descarga1.png"))); // NOI18N
         itmReadReadFactura.setMnemonic('s');
         itmReadReadFactura.setText("Read");
         itmReadReadFactura.addActionListener(new java.awt.event.ActionListener() {
@@ -325,6 +337,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         facturaMenu.add(itmReadReadFactura);
 
         itmReadDeleteFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadDeleteFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/delete1.png"))); // NOI18N
         itmReadDeleteFactura.setMnemonic('x');
         itmReadDeleteFactura.setText("Delete");
         itmReadDeleteFactura.addActionListener(new java.awt.event.ActionListener() {
@@ -340,6 +353,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         idiomasMenu.setText("Idiomas");
 
         itmReadIdiomasEspañol.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadIdiomasEspañol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/484633b1.png"))); // NOI18N
         itmReadIdiomasEspañol.setMnemonic('o');
         itmReadIdiomasEspañol.setText("Español");
         itmReadIdiomasEspañol.addActionListener(new java.awt.event.ActionListener() {
@@ -350,6 +364,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         idiomasMenu.add(itmReadIdiomasEspañol);
 
         itmReadIdiomasIngles.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
+        itmReadIdiomasIngles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/484633b1.png"))); // NOI18N
         itmReadIdiomasIngles.setMnemonic('x');
         itmReadIdiomasIngles.setText("Ingles");
         itmReadIdiomasIngles.addActionListener(new java.awt.event.ActionListener() {
@@ -367,11 +382,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -434,27 +453,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void exitMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_exitMenuItem1ActionPerformed
-
-    private void itmReadCreateClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadCreateClienteActionPerformed
-        //crear cliente
-        if(crearCliente == null || !crearCliente.isVisible()){
-            crearCliente = new CrearCliente(controladorCliente);
-            crearCliente.setVisible(true);
-            desktopPane.add(crearCliente);
-            CrearCliente.cambiarIdioma(localizacion);
-        }
-    }//GEN-LAST:event_itmReadCreateClienteActionPerformed
-
-    private void itmReadReadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadReadClienteActionPerformed
-        //leer cliente
-        if(leerCliente == null || !leerCliente.isVisible()){
-        leerCliente = new LeerCliente(controladorCliente);
-        leerCliente.setVisible(true);
-        desktopPane.add(leerCliente);
-        LeerCliente.cambiarIdioma(localizacion);
-        }
-
-    }//GEN-LAST:event_itmReadReadClienteActionPerformed
 
     private void imtReadUpdateClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imtReadUpdateClienteActionPerformed
         //actualizar cliente
@@ -542,6 +540,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_itmReadCreateFacturaActionPerformed
+
+    private void itmReadReadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadReadClienteActionPerformed
+        //leer cliente
+        if(leerCliente == null || !leerCliente.isVisible()){
+            leerCliente = new LeerCliente(controladorCliente);
+            leerCliente.setVisible(true);
+            desktopPane.add(leerCliente);
+            LeerCliente.cambiarIdioma(localizacion);
+        }
+    }//GEN-LAST:event_itmReadReadClienteActionPerformed
+
+    private void itmReadCreateClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReadCreateClienteActionPerformed
+        //crear cliente
+        if(crearCliente == null || !crearCliente.isVisible()){
+            crearCliente = new CrearCliente(controladorCliente);
+            crearCliente.setVisible(true);
+            desktopPane.add(crearCliente);
+            CrearCliente.cambiarIdioma(localizacion);
+        }
+    }//GEN-LAST:event_itmReadCreateClienteActionPerformed
 
     /**
      * @param args the command line arguments
